@@ -68,7 +68,7 @@ def main():
     else:
         model_path = ROOT / "runs" / "costco_label_obb" / "weights" / "best.pt"
         if not Path(model_path).exists():
-            model_path = "yolo26n-obb.pt"
+            model_path = "yolo11n-obb.pt"
             print("No previous best.pt found, starting from pretrained weights")
 
     print(f"Retraining from {model_path}...")
