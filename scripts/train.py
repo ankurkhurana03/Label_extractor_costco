@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parent.parent
 
 def main():
     parser = argparse.ArgumentParser(description="Train YOLO26-OBB model")
-    parser.add_argument("--model", default="yolo11n-obb.pt", help="Pretrained model (default: yolo11n-obb.pt)")
+    parser.add_argument("--model", default="yolo26n-obb.pt", help="Pretrained model (default: yolo26n-obb.pt)")
     parser.add_argument("--data", default=str(ROOT / "dataset.yaml"), help="Dataset config")
     parser.add_argument("--epochs", type=int, default=100)
     parser.add_argument("--imgsz", type=int, default=640)
