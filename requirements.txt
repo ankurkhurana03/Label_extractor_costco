@@ -1,0 +1,6 @@
+ultralytics>=8.3
+albumentations>=2.0
+label-studio
+label-studio-ml
+opencv-python-headless
+numpy

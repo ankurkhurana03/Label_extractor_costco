@@ -1,0 +1,9 @@
+# YOLO26 OBB dataset configuration — Costco label detection
+path: dataset
+train: images/train
+val: images/test
+task: obb
+
+# Classes
+names:
+  0: costco_label
