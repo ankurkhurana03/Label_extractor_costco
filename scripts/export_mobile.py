@@ -19,7 +19,7 @@ DEFAULT_MODEL = ROOT / "runs" / "costco_label_obb" / "weights" / "best.pt"
 def main():
     parser = argparse.ArgumentParser(description="Export model for mobile")
     parser.add_argument("--model", default=str(DEFAULT_MODEL), help="Model weights path")
-    parser.add_argument("--imgsz", type=int, default=416, help="Input size (smaller = faster)")
+    parser.add_argument("--imgsz", type=int, default=640, help="Input size (must match training imgsz)")
     args = parser.parse_args()
 
     model = YOLO(args.model)

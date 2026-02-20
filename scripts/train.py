@@ -11,12 +11,13 @@ ROOT = Path(__file__).resolve().parent.parent
 
 def main():
     parser = argparse.ArgumentParser(description="Train YOLO26-OBB model")
+    # Try yolo26s-obb.pt for better features if you have enough data/GPU memory
     parser.add_argument("--model", default="yolo26n-obb.pt", help="Pretrained model (default: yolo26n-obb.pt)")
     parser.add_argument("--data", default=str(ROOT / "dataset.yaml"), help="Dataset config")
-    parser.add_argument("--epochs", type=int, default=100)
+    parser.add_argument("--epochs", type=int, default=300)
     parser.add_argument("--imgsz", type=int, default=640)
     parser.add_argument("--batch", type=int, default=8)
-    parser.add_argument("--patience", type=int, default=20, help="Early stopping patience")
+    parser.add_argument("--patience", type=int, default=50, help="Early stopping patience")
     parser.add_argument("--device", default=None, help="Device: cpu, 0, mps, etc.")
     parser.add_argument("--name", default="costco_label_obb", help="Run name")
     args = parser.parse_args()
@@ -37,9 +38,18 @@ def main():
         mosaic=1.0,
         flipud=0.5,
         fliplr=0.5,
-        degrees=15.0,
+        degrees=30.0,
         scale=0.5,
-        translate=0.1,
+        translate=0.2,
+        mixup=0.3,
+        copy_paste=0.3,
+        # Color augmentation
+        hsv_h=0.015,
+        hsv_s=0.7,
+        hsv_v=0.4,
+        # Regularization
+        weight_decay=0.001,
+        dropout=0.1,
     )
 
     print(f"\nTraining complete!")

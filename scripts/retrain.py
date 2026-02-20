@@ -79,11 +79,26 @@ def main():
         epochs=args.epochs,
         imgsz=640,
         batch=args.batch,
-        patience=15,
+        patience=30,
         device=args.device,
         project=str(ROOT / "runs"),
         name="costco_label_obb",
         exist_ok=True,
+        # Augmentation (matches train.py)
+        mosaic=1.0,
+        flipud=0.5,
+        fliplr=0.5,
+        degrees=30.0,
+        scale=0.5,
+        translate=0.2,
+        mixup=0.3,
+        copy_paste=0.3,
+        hsv_h=0.015,
+        hsv_s=0.7,
+        hsv_v=0.4,
+        # Regularization
+        weight_decay=0.001,
+        dropout=0.1,
     )
 
     print("\nRetraining complete!")
